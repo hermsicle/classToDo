@@ -1,0 +1,181 @@
+// create afunction that takes an array
+// the array should contain 2 numbers
+// the function should sort the array numerically
+//example
+//var numArr = [2, 1];
+//function sort(arr) {
+//}
+//sort(numArr); // numArr should be [1, 2]
+
+//this creates a sort.
+var numArray = [3,2,4,6,8,4,2];
+function numSort(arr) {
+numArray = numArray.sort();
+alert(numArray);
+}
+
+//To create a function and sort it numerically,
+//numArray.sort((a, b) => a - b);
+/*
+var numArr = [2 , 5, 7, ];
+var numArr2 = [30,12];
+function sortIt(arr) {
+    numArr = numArr.sort();
+    console.log(numArr, numArr2)
+}
+sortIt(numArr);
+sortIt(numArr2);
+*/
+// ex. in class using condiitonal
+var numArr = [2,1]
+var numArr2 = [30,12]
+
+function sortIt (arr) {
+    if(arr[0] > arr[1]) {
+        var temp = arr[0];  //we create a temp var
+        arr[0] = arr[1]; 
+        arr[1] = temp;
+    }
+}
+//since functions are reUsable, we can use it here to sort numArr and numArr2.
+//we are calling the sortIt function and assigning it to var numArr and numArr2.
+sortIt(numArr);
+console.log(numArr)
+sortIt(numArr2);
+console.log(numArr2);
+
+
+
+***********************************************************
+*Important could be interview question*
+var numArr = [2, 4, 1, 8, 9, 5];
+
+function bubbleSort(arr) {
+    var sorted = false;
+    while (!sorted) { //This means: while sorted !== false, 
+        sorted = true; //sorted= true;
+        for (var i = 0; i < arr.length; i++) { //creating a for loop to iterate the numArr one time.
+            if (arr[i] > arr[i + 1]) { //creating a conditional 
+                var temp = arr[i]; //creating a var temp to equal to arr[i] in the loop.
+                arr[i] = arr[i + 1]; //
+                arr[i + 1] = temp;
+                sorted = false; //without this sorted = false , this will only iterate the for loop once. 
+                //since sorted = false , it will continue to run the iteration until its true.
+            }
+        }
+    }
+}
+bubbleSort(numArr);
+console.log(numArr);
+
+//while loop only loops once within its scope.
+//for loops loop through the iteration numerous times.
+//we put sorted = false on line 12 because 'var sorted = false' and if its false, its going to iterate again till its true.
+************************************************************
+function say() {
+    var valid = false;
+
+    if (!valid) {
+        const message = 'WTF'; //when you use 'let' its only applicable to the lexical scope of if {} .
+        //let and const stays within block scope.
+        //var stays within functional scope. 
+    }
+    console.log(message) //message would throw an error .
+}
+
+say() //always call the function if you want to console log anything within the function scope
+************************************************************
+const job = 'software dev';
+//Const is used to be used as an object that does not change. 
+job = 'teacher';
+
+console.log(job)
+//wlould get an  error
+************************************************************
+This is the ES6 Standard, these two give the same output
+const doThing = (word, word2,) => {
+    console.log('do things', word, word2)
+};
+
+
+Old Standard:
+function doThing(word, word2) {
+    console.log('do things', word, word2);
+};
+doThing('yup', 'thing');
+************************************************************
+var array = [1, 2, 3, 4, 5, 6];
+
+Old Standard:
+array.forEach(function (element) {
+    console.log(element)
+});
+
+ES6:
+array.forEach(element => {  //This is the same as the code above, but ES6 standard.
+    console.log(element);
+});
+************************************************************
+
+//Constructor relies on this, so this function cannot be used with an => .
+//A constructor is a function that builds an object.
+//New Es6 Standard.
+class Car {
+    constructor(make, color) {
+        this.make = make;
+        this.color = color;
+    }
+    //prototype method. (Legacy version)
+    sayInfo() {
+        console.log(this.make, this.color);
+    }
+}
+var myCar = new Car('honda' , 'grey');
+console.log(myCar)
+
+//Old Legacy Way
+function Car(make, color){
+    this.make = make;
+    this.color = color ;
+}
+//prototype method. (Legacy version)
+Car.prototype.sayInfo = function(){
+    console.log(this.make, this.color);
+}
+var myCar = new Car('honda' , 'grey');
+console.log(myCar)
+************************************************************
+//function should return true if num is odd,
+//false, if num is even
+function isOdd(num) {
+    if (num % 2 === 1) {
+     return true;
+
+}
+return false;
+}
+
+var truthy = isOdd(4);
+console.log(truthy);
+************************************************************
+// % is defined as MODULES
+let myArr = [];
+for (let i = 0; i < 100; i++) {
+    myArr.push(i+1);
+}
+// loop through array console log fizz if the item is dividible by 2
+for (let i = 0; i < myArr.length; i++){
+    console.log(myArr[i])
+    if (myArr[i] % 2 === 0) {
+        console.log('fizz');
+    }
+    //if item is divisible by 3 print fuzz 
+    if (myArr[i] % 3===0) {
+        console.log('fuzz')
+    }
+    //if item is divisible by 3 and 5, print 'fizz buzz'
+    if (myArr[i] %  3 === 0 && myArr[i] % 5 === 0){
+        console.log('fizzbuzz')
+    }
+}
+************************************************************
